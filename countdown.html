@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #8e44ad, #3498db);
+}
+
+.navbar {
+    background: linear-gradient(to bottom right, #8e44ad, #3498db);
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.countdown-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adding a semi-transparent white background */
+    border-radius: 10px;
+    margin-top: 80px; /* Adjusted margin to make space for the navbar */
+}
+
+h1 {
+    color: #050505;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    font-size: 24px;
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .navbar a {
+        margin: 0 10px;
+    }
+}
+
+</style>
+<body class="countdown-page">
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="Memories.html">Wish</a>
+       
+    </div>
+    <div class="countdown-container">
+        <h1>Countdown for the best New Year💖</h1>
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  // Set the date we're counting down to (adjust the date and time as needed)
+  var countDownDate = new Date("Dec 31, 2024 20:30:00").getTime();
+
+  // Update the countdown every 1 second
+  var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      // Calculate remaining days, hours, minutes, and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the countdown
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+
+      // If the countdown is over, open the video
+      if (distance < 0) {
+          clearInterval(x); // Stop the countdown
+          openVideo(); // Function to open the video
+      }
+  }, 1000);
+
+  function openVideo() {
+      // Replace 'your_video_url' with the actual URL of your video
+      window.location.href = 'https://streamable.com/4w7p03';
+  }
+});
+
+    </script>
+</body>
+</html>
